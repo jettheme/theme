@@ -19,9 +19,9 @@ $('.back-to-top').fadeOut();
 $('a').on('click', function() {
 var href = $(this).attr('href');
 href = href.replace(/[^a-zA-Z0-9-_]/g, '');
-if(href && $(href).length){
+if(href && $('#'+href).length){
 $('#menu-primary').removeClass('show');
-var positon = $(href).offset().top;
+var positon = $('#'+href).offset().top;
 $('html, body').animate({scrollTop:positon}, 1000);
 return false;
 }
