@@ -25,17 +25,3 @@ $('html, body').animate({scrollTop:positon}, 1000);
 return false;
 }
 });
-
-$('.accordion .panel > a').click(function() {
-$this = $(this);
-$panel =  $this.parent();
-$content =  $this.parent().next();
-if(!$panel.hasClass('active')){
-$panel.addClass('active');
-$content.addClass('slide').slideDown();
-$other = $this.parents('.accordion').children('.panel').not($panel);
-$other.removeClass('active');
-$other.next().removeClass('slide').slideUp();
-}
-return false;
-});
