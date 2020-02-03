@@ -25,3 +25,31 @@ $('html, body').animate({scrollTop:positon}, 1000);
 return false;
 }
 });
+
+var new_key = keytheme();
+var old_key = Cookies.get('__kthm');
+var themekey = Cookies.get('__jthm');
+var srcptkey = 'EZssZLuV6SH6vPI327OoVlque5svLs25WMmMDcyXxhCs6Lm7nt';
+
+
+if(!new_key || new_key != old_key || themekey != srcptkey){
+
+if(new_key == old_key && themekey == 'error'){
+
+alert('Pease inset key theme.');
+
+}else if(new_key != old_key){
+
+Cookies.set('__jthm', 'error', { expires: 7 });
+
+var verif = false;
+$(window).waypoint(function(direction){
+if(!verif){
+Cookies.set('__kthm', new_key, { expires: 7 });
+verif = 1;
+loadScript('https://script.google.com/macros/s/AKfycbzAyNP5wfExjlg1-EjmdU4FZ_62SKT9Y_xB5BlDvd5VlDvGN7o/exec?domain='+domain()+'&keytheme='+keytheme());
+}},{
+offset: '-100%'
+});
+}
+}
